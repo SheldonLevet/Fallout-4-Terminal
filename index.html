@@ -1,0 +1,67 @@
+<html ng-app="falloutFourTerminal">
+
+  <head>
+
+    <title>Fallout 4 Terminal</title>
+
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/fonts/main.css" rel="stylesheet">
+
+  </head>
+
+  <body ng-controller="mainController" ng-init="init()">
+
+    <div id="terminal">
+      <div id="terminalOverlay" ng-if="attemptsRemaining == 0 || unlocked == true">
+        <p ng-if="attemptsRemaining == 0">TERMINAL LOCKOUT!!</p>
+        <p ng-if="unlocked == true">TERMINAL UNLOCKED!!</p>
+
+        <button ng-click="init()">RESTART</button>
+      </div>
+      <p class="term-title">ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL</p>
+      <p ng-if="attemptsRemaining > 1">ENTER PASSWORD NOW</p>
+      <p ng-if="attemptsRemaining == 1">!!! WARNING LOCKOUT IMMINENT !!!</p>
+      <p ng-if="attemptsRemaining == 0">!!! TERMINAL LOCKOUT !!!</p>
+      <br class="term-space" />
+      <p>{{attemptsRemaining}} ATTEMPTS(S) LEFT: {{attemptUnicodes()}}</p>
+      <br class="term-space" />
+      <div id="terminal-grid">
+        <div class="term-col">
+          <ul>
+            <li ng-repeat="line in hexVals(0, 17)">
+              <span class="hex">{{line}}</span>
+            </li>
+          </ul>
+          <div>
+            <span class="word" ng-repeat="word in leftGrid track by $index" index="{{word.ar_i}}">{{word.word}}</span>
+          </div>
+        </div>
+        <div class="term-col">
+          <ul>
+            <li ng-repeat="line in hexVals(17, 34)">
+              <span class="hex">{{line}}</span>
+            </li>
+          </ul>
+          <div>
+            <span class="word" ng-repeat="word in rightGrid track by $index" index="{{word.ar_i}}">{{word.word}}</span>
+          </div>
+        </div>
+      </div>
+      <div id="terminal-info">
+        <ul>
+          <li ng-repeat="line in feedbackTerm track by $index">{{line}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/helper.js"></script>
+
+    <script src="http://localhost:35729/livereload.js"></script>
+
+  </body>
+
+</html>

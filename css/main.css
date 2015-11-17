@@ -1,0 +1,99 @@
+body,
+html
+{
+  padding: 0px;
+  background: black;
+}
+
+#terminalOverlay
+{
+  position: absolute;
+  z-index: 100;
+  background: rgba(73, 255, 134, 0.3);
+  text-align: center;
+  padding-top: 125px;
+  color: white;
+  font-size: 40px;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+button
+{
+  border: 3px solid white;
+  background: none;
+  font-family: 'fixedsys';
+  padding: 10px 20px;
+  font-size: 30px;
+  margin: 20px 0px;
+}
+button:hover
+{
+  background: white;
+  cursor: pointer;
+}
+
+#terminal
+{
+  position: absolute;
+  z-index: 10;
+  font-family: 'fixedsys';
+  font-size: 15px;
+  letter-spacing: 2px;
+  background-image: url('../images/Gterminal.png');
+  background-repeat: no-repeat;
+  width: 740px;
+  height: 350px;
+  color: rgba(73, 255, 134, 0.8);
+  padding: 25px;
+  top: 50%;
+  left: 50%;
+  margin: -175px -370px;
+}
+
+#terminal-grid
+{
+  width: 410px;
+  display: inline-block;
+  vertical-align: top;
+}
+div.term-col
+{
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+}
+div.term-col > ul,
+div.term-col > div
+{
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.term-col > div
+{
+  width: 114px;
+}
+div.term-col > div > span
+{
+  word-break: break-all;
+  cursor: pointer;
+}
+div.term-col > div > span:hover
+{
+  background-color: green;
+}
+
+#terminal-info
+{
+  width: 310px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+span.hex
+{
+  margin-right: 0px;
+}
